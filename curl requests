@@ -1,0 +1,25 @@
+Register:
+curl -X POST -H "Content-Type: application/json" -d '{"email":"kavikris@gmail.com", "username":"kavikris", "password":"kavikris"}' http://127.0.0.1:3100/auth/register
+curl -X POST -H "Content-Type: application/json" -d '{"email":"a.krishnakundan@gmail.com", "username":"akk", "password":"akk"}' http://127.0.0.1:3100/auth/register
+curl -X POST -H "Content-Type: application/json" -d '{"email":"aseetha@gmail.com", "username":"seetha", "password":"seetha"}' http://127.0.0.1:3100/auth/register
+
+
+Login:
+curl -X POST -H "Content-Type: application/json" -d '{"email":"a.krishnakundan@gmail.com", "password":"akk"}' http://127.0.0.1:3100/auth/login
+
+curl -X POST -H "Content-Type: application/json" -d '{"email":"kavikris@gmail.com", "password":"kavikris"}' http://127.0.0.1:3100/auth/login
+
+
+post message:
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTRhNGFhMzczODAxOTU5Y2U1ZTYzNzMiLCJleHAiOjE2OTk1MjE0OTMsImlhdCI6MTY5OTUxOTY5My40MDF9.fMB_6TIdoCHtYWPyMft53jP4g3eezWeFolm-hqnovMI" -d '{"text":"hello", "receiverId":"654a4aa373801959ce5e6373"}' http://127.0.0.1:3100/message
+
+get message:
+curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTRhNGFhMzczODAxOTU5Y2U1ZTYzNzMiLCJleHAiOjE2OTk1MjE0OTMsImlhdCI6MTY5OTUxOTY5My40MDF9.fMB_6TIdoCHtYWPyMft53jP4g3eezWeFolm-hqnovMI" http://127.0.0.1:3100/messages
+
+
+getUsername:
+curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTRhNGFhMzczODAxOTU5Y2U1ZTYzNzMiLCJleHAiOjE2OTk0NTIzMTksImlhdCI6MTY5OTQ1MDUxOS40Mjd9.CPcRAqhovFEoQ3RWvznhv8kSDR5NfdIOmKGqts4JS5U" http://127.0.0.1:3100/username?userId=654a540f6c9cb88e642ddcfe
+
+getUsers:
+
+curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTRhNGFhMzczODAxOTU5Y2U1ZTYzNzMiLCJleHAiOjE2OTk1MzM4MjUsImlhdCI6MTY5OTUzMjAyNS4yMTF9.DgFxTYW8X1-o_U2gZCxLJbAYfXEwf7PUy7QmJ4kZcH4" http://127.0.0.1:3100/allusers

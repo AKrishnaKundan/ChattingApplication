@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: green;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.heading{
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+
+input{
+    margin-bottom: 15px;
+    width: 300px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+button{
+    width: 120px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
