@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .chat-container {
+      width: 60%;
+      margin: 20px auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message {
+      width: 100%;
+    }
+
+    .sent, .received{
+      display: inline-block;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      padding: 10px;
+      max-width: 70%;
+    }
+
+    .sent {
+      background-color: #4caf50;
+      color: white;
+      float:right;
+    }
+
+    .received {
+      max-width: 50%;
+      background-color: #ddd;
+    }
+
+    @media (max-width: 768px){
+      .chat-container{
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="message"><div class="sent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, animi.</div></div>
+  <div class="message"><div class="received">Sent Message 1</div></div>
+  <div class="message"><div class="sent">Sent Message 1</div></div>
+  <div class="message"><div class="received">Sent Message 1</div></div>
+</div>
+
+</body>
+</html>

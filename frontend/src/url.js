@@ -1,3 +1,3 @@
-const rootEndPoint = {"url" : "http://127.0.0.1:3100"}
+const rootEndPoint = {"url" : "http://192.168.1.5:3100"}
 
 export default rootEndPoint;

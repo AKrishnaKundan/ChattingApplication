@@ -20,7 +20,8 @@ const updateMessage = async({body, user})=>{
         await updateSender(message, user._id, body.receiverId);
         message.type = "receive";
         await updateReceiver(message, body.receiverId, user._id);
-        return {"status":200, "message": "Message Sent"}
+        message.type="send";
+        return message;
     }
     catch(err){
         throw {"status":500, "message": "Internal Server Error"}

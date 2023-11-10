@@ -1,6 +1,7 @@
 const passport = require("passport");
 
 const auth = (req, res, next) => {
+  console.log("jjjhbj");
   passport.authenticate("jwt", { session: false }, (err, user, info) => {
     if (err || !user || info) {
       return res.status(401).json({ message: "Authentication failed" });

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom';
 import {useSnackbar} from 'notistack';
-import "./Register.css"
+import "./Login,Register.css"
 
 import rootEndPoint from '../url';
 
@@ -62,49 +62,36 @@ function Register() {
    };
 
   return (
-    <div className= "container">
-      <form className="form">
-        <h1 className='heading'>Register</h1>
-
-        <label htmlFor="username">Username</label>
-        <input 
-          type="text" 
-          id="username" 
-          name="username" 
-          value={username}
-          onChange={(e)=> setUsername(e.target.value)}
-        />
-
-        <label htmlFor="email">Email</label>
-        <input 
-          type="text" 
-          id="email" 
-          name="email" 
-          value={email}
-          onChange={(e)=> setEmail(e.target.value)}
-        />
-
-        <label htmlFor="password">Password</label>
-        <input 
-          type="text"   
-          id="password" 
-          name="password" 
-          value={password}
-          onChange = {(e)=>setPassword(e.target.value)}
-        />
-
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input 
-          type="text"   
-          id="confirmPassword" 
-          name="confirmPassword" 
-          value={confirmPassword}
-          onChange = {(e)=>setConfirmPassword(e.target.value)}
-        />
-        <button onClick={registerUser}>Register
-      </button>
-      </form>
-    </div>
+    <>
+      <h1 style={{position: "absolute", top:"4vh", left:"4vw" }}>ChatApp</h1>
+      <div className="center">
+        <h1>Register</h1>
+        <form onSubmit = {(e)=>registerUser(e)}>
+          <div className="txt_field">
+            <input type="text" required="" onChange={(e)=> setUsername(e.target.value)}/>
+            <span></span>
+            <label>Username</label>
+          </div>
+          <div className="txt_field">
+            <input type="text" required="" onChange={(e)=> setEmail(e.target.value)}/>
+            <span></span>
+            <label>Email</label>
+          </div>
+          <div className="txt_field">
+            <input type="password" required="" onChange={(e)=> setPassword(e.target.value)}/>
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div className="txt_field">
+            <input type="password" required="" onChange={(e)=> setConfirmPassword(e.target.value)}/>
+            <span></span>
+            <label>Confirm Password</label>
+          </div>
+          {/*<div className="pass">Forgot Password?</div>*/}
+          <input type="submit" value="Register" style={{marginBottom:"20px"}}/>
+        </form>
+      </div>
+    </>
   )
 }
 

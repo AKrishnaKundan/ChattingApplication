@@ -13,9 +13,8 @@ const getMessages = async(req, res)=>{
 
 const sendMessage = async(req, res)=>{
     try{
-        console.log("controller");
         const message = await messageService.updateMessage(req);
-        res.json({"status":200, "message":"hiji"})
+        res.json({"status":200, "message":message})
     }
     catch(err){
         res.status(500).json({"message":"Internal Server Error"})

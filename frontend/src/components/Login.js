@@ -3,7 +3,7 @@ import axios from "axios";
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom';
 import {useSnackbar} from 'notistack';
-import "./Login.css"
+import "./Login,Register.css"
 
 import rootEndPoint from '../url';
 
@@ -52,30 +52,29 @@ function Login() {
   }
 
   return (
-    <div className= "container">
-      <form className="form">
-        <h1 className='heading'>Login</h1>
-
-        <label htmlFor="email">Email</label>
-        <input 
-          type="text" 
-          id="email" 
-          name="email" 
-          value={email}
-          onChange={(e)=> setEmail(e.target.value)}
-        />
-
-        <label htmlFor="password">Password</label>
-        <input 
-          type="text"   
-          id="password" 
-          name="password" 
-          value={password}
-          onChange = {(e)=>setPassword(e.target.value)}
-        />
-        <button onClick={loginUser}>Login</button>
-      </form>
-    </div>
+    <>
+      <h1 style={{position: "absolute", top:"4vh", left:"4vw" }}>ChatApp</h1>
+      <div className="center">
+        <h1>Login</h1>
+        <form onSubmit = {(e)=>loginUser(e)}>
+          <div className="txt_field">
+            <input type="text" required="" onChange={(e)=> setEmail(e.target.value)}/>
+            <span></span>
+            <label>Email</label>
+          </div>
+          <div className="txt_field">
+            <input type="password" required="" onChange={(e)=> setPassword(e.target.value)}/>
+            <span></span>
+            <label>Password</label>
+          </div>
+          {/*<div className="pass">Forgot Password?</div>*/}
+          <input type="submit" value="Login"/>
+          <div className="signup_link">
+            Not a member? <a href="/register">Register</a>
+          </div>
+        </form>
+      </div>
+    </>
   )
 }
 
