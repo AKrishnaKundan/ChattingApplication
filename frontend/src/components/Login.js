@@ -47,7 +47,12 @@ function Login() {
 
     }
     catch(err){
-      enqueueSnackbar(err.response.data.message, {variant:"error"});
+      console.log(err)
+      if (err.response){
+        enqueueSnackbar(err.response.data.message, {variant:"error"});
+      }else{
+        enqueueSnackbar("Server Error", {variant:"error"});
+      }
     }
   }
 

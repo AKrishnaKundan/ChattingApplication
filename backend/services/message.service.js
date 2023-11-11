@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const {userChat} =  require("../models/userChat.model.js");
 const {singleChat} = require("../models/singleChat.model.js") 
 const {Message} = require("../models/message.model.js")
@@ -15,11 +17,12 @@ const getMessages = async(userId)=>{
 
 const updateMessage = async({body, user})=>{
     try{
-        const message = new Message({"type":"send", "text":body.text, "timestamp": new Date(Date.now())})
-
-        await updateSender(message, user._id, body.receiverId);
-        message.type = "receive";
-        await updateReceiver(message, body.receiverId, user._id);
+        const message = new Message({"type":"send", "text":body.text, "timestamp": new Date()})
+        let senderId = user._id;
+        let receiverId = body.receiverId;
+        await updateSender(message, senderId, receiverId);
+        message.type = "received";
+        await updateReceiver(message, receiverId, senderId);
         message.type="send";
         return message;
     }
@@ -28,36 +31,39 @@ const updateMessage = async({body, user})=>{
     }
 }
 
-const updateSender = async(message, senderId, receiverId)=>{
+const updateSender = async(message, fromId, toId)=>{
     try{
-        let senderChat = await userChat.getChatById(senderId);
-        let count = 0;
+        let senderChat = await userChat.getChatById(fromId);
         let receiverChat = senderChat.persons.find((receiver)=>{
-            count++;
-            return receiver;
+            if (toId == receiver.receiverId){
+                return receiver;
+            }
         })
+
         if (!receiverChat){
-            receiverChat = new singleChat({receiverId: receiverId, messages:[]})
+            receiverChat = new singleChat({receiverId: toId, messages:[]})
             senderChat.persons.push(receiverChat);
         }
         receiverChat.messages.push(message);
         await senderChat.save();
     }
     catch(err){
+        console.log(err);
         throw {"status":500, "message": "Internal Server Error"}
     }
 }
-
-const updateReceiver = async(message, senderId, receiverId)=>{
+const updateReceiver = async(message, fromId, toId)=>{
     try{
-        let senderChat = await userChat.getChatById(senderId);
-        let count = 0;
+        let senderChat = await userChat.getChatById(fromId);
         let receiverChat = senderChat.persons.find((receiver)=>{
-            count++;
-            return receiver;
+        
+            if (toId.equals(receiver.receiverId)){
+                return receiver;
+            }
         })
+
         if (!receiverChat){
-            receiverChat = new singleChat({receiverId: receiverId, messages:[]})
+            receiverChat = new singleChat({receiverId: toId, messages:[]})
             senderChat.persons.push(receiverChat);
         }
         receiverChat.messages.push(message);

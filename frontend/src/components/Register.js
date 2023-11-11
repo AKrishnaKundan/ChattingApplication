@@ -27,11 +27,17 @@ function Register() {
       })
       enqueueSnackbar("Registered successfully",{variant:"success"});
 
+      localStorage.clear();
       navigate("../login", { relative: "path" });
 
     }
     catch(err){
+      if (err.response){
       enqueueSnackbar(err.response.data.message, { variant:"error" });
+      }
+      else{
+        enqueueSnackbar("Server Error", { variant:"error" })
+      }
     }
   }
 
@@ -89,6 +95,9 @@ function Register() {
           </div>
           {/*<div className="pass">Forgot Password?</div>*/}
           <input type="submit" value="Register" style={{marginBottom:"20px"}}/>
+          <div className="signup_link">
+            Already a member ?<a href="/login">Login</a>
+          </div>
         </form>
       </div>
     </>

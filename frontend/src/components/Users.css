@@ -12,7 +12,21 @@ body{
 .chatapp{
     margin-bottom: 30px;
 }
-
+.logout{
+    border: 1px solid white;
+    padding: 5px 12px;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;    
+  }
+  .logout:hover{
+    border-color: #2691d9;
+    transition: .5s;
+  }
+  
 .allusers{
     display: flex;
     width: 100vw;
