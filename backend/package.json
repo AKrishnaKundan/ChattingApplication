@@ -19,8 +19,6 @@
     "passport-jwt": "^4.0.1",
     "socket.io": "^4.7.2"
   },
-  "engines": {
-    "node": ">=15.0.0"
-  }
+ 
   
 }
