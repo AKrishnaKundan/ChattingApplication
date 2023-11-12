@@ -14,6 +14,10 @@ Live link: https://akrishnakundan-chatapp.netlify.app
 
 
 
+https://github.com/AKrishnaKundan/ChattingApplication/assets/93312488/7aea0ec7-7fa2-43f0-9a3b-883b827b7ca9
+
+
+
 
 
 ## Frontend
